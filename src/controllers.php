@@ -29,3 +29,13 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
+
+$app->get('/dbtest', function() use($app) {
+    return join('<br>', array_map(function($e) {
+        return array_values($e)[0];
+    }, $app['db']->fetchAll("show tables")));
+});
+
+$app->get('/redistest', function() use($app) {
+    return print_r($app['redis']->info());
+});

@@ -9,3 +9,31 @@ services:
       - "3000:80"
     environment:
       - SYMFONY_ENV=dev
+      - DB_MASTER_HOST=mysql
+      - DB_MASTER_USER=app
+      - DB_MASTER_PASSWORD=app
+      - DB_REPLICA_HOST=mysql
+      - DB_REPLICA_USER=app
+      - DB_REPLICA_PASSWORD=app
+    depends_on:
+      - mysql
+      - redis
+
+  mysql:
+    image: mysql:5.7
+    command: "mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+    volumes:
+      - "mysql-myapp-data:/var/lib/mysql"
+    environment:
+      - "MYSQL_DATABASE=myapp_development"
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_USER=app"
+      - "MYSQL_PASSWORD=app"
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis
+
+volumes:
+  mysql-myapp-data:

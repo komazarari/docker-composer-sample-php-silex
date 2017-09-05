@@ -32,6 +32,12 @@
             "dev-master": "2.0.x-dev"
         }
     },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.jp"
+        }
+    },
     "scripts": {
         "run": [
             "echo 'Started web server on http://localhost:8888'",

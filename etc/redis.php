@@ -2,11 +2,11 @@
 
 return $global['config']['redis'] = [
     'primary' => [
-        'host' => 'redis',
+        'host' => getenv('REDIS_PRIMARY_HOST'),
         'port' => 6379,
     ],
     'replica' => [
-        'host' => 'redis',
+        'host' => getenv('REDIS_REPLICA_HOST'),
         'port' => 6379,
     ],
 ];

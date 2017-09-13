@@ -39,3 +39,7 @@ $app->get('/dbtest', function() use($app) {
 $app->get('/redistest', function() use($app) {
     return print_r($app['redis']->info());
 });
+
+$app->get('/phpinfo', function() use($app) {
+    return phpinfo();
+});

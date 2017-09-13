@@ -16,6 +16,8 @@ services:
       - DB_REPLICA_HOST=mysql
       - DB_REPLICA_USER=app
       - DB_REPLICA_PASSWORD=app
+      - REDIS_PRIMARY_HOST=redis
+      - REDIS_REPLICA_HOST=redis
     depends_on:
       - mysql
       - redis

@@ -2,7 +2,7 @@ PHP sample app with docker-compose development and the GKE deployments
 ==============
 
 PHP Silex で MySQL, Redis を使うアプリケーションの例です。
-開発環境を docker-compose で作成し、k8s (GKE) を使ってデプロイします。
+開発環境を docker-compose で作成します。
 
 
 開発環境
